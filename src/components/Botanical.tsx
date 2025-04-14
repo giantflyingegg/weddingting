@@ -84,7 +84,7 @@ export default function Botanical({ activeSection }: BotanicalProps) {
       {/* Static bottom left element */}
       <div className={styles.bottomLeftContainer}>
         <img 
-          src="/images/topcornerbunch.svg" 
+          src="/images/corner.svg" 
           alt="Decorative floral element - bottom left" 
           className={styles.bottomLeftImage}
         />

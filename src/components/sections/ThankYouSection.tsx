@@ -66,8 +66,10 @@ export default function ThankYouSection({ isActive }: SectionProps) {
           animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <h2 className={thankYouStyles.names}>Your Names</h2>
-          <p className={thankYouStyles.date}>Wedding Date</p>
+          <h2 className={thankYouStyles.names}>Abby and Kieran Sweetman</h2>
+          <p className={thankYouStyles.date}>13/09/2024</p>
+          <p className={thankYouStyles.date}>13/12/2024</p>
+          <p className={thankYouStyles.date}>28/04/2025</p>
           <p className={thankYouStyles.thankYouText}>
             Thank you once again for being part of our special day. We hope these memories bring you as much joy as they bring us.
           </p>
