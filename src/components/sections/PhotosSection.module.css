@@ -1,133 +1,246 @@
 .photoGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    max-width: 900px;
-    margin: 2rem auto;
-    position: relative;
-    perspective: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  position: relative;
+  perspective: 1000px;
+}
+
+.photoContainer {
+  width: 240px;
+  height: 180px;
+  position: relative;
+  cursor: pointer;
+  transition: all var(--transition-standard);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.photoContainer:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px) scale(1.02);
+}
+
+.photoPlaceholder {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-accent-blush);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-style: italic;
+  transition: all var(--transition-standard);
+}
+
+.photoContainer:nth-child(2n) .photoPlaceholder {
+  background-color: var(--color-accent-sage);
+}
+
+.photoContainer:nth-child(3n) .photoPlaceholder {
+  background-color: var(--color-accent-lavender);
+}
+
+/* New styles for event-based display */
+.parallaxContainer {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 250px);
+  overflow: hidden;
+}
+
+.eventContainer {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eventTitle {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-interactive);
+  margin-bottom: 0.5rem;
+  position: relative;
+  text-align: center;
+}
+
+.eventDate {
+  display: block;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--color-text);
+  opacity: 0.8;
+  margin-top: 0.25rem;
+}
+
+.eventDescription {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Event indicators/navigation */
+.eventIndicators {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  gap: 1rem;
+}
+
+.eventIndicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-interactive);
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(90, 125, 99, 0.3);
+  transition: all var(--transition-standard);
+}
+
+.eventIndicator:hover {
+  transform: scale(1.2);
+}
+
+.expandedPhotoOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.expandedPhotoContainer {
+  width: 80%;
+  max-width: 900px;
+  max-height: 80vh;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+}
+
+.expandedPhotoPlaceholder {
+  width: 100%;
+  height: 60vh;
+  background-color: var(--color-accent-blush);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.photoCaption {
+  padding: 1rem;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--color-text);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: white;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  font-size: 1.5rem;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Event-specific photo styling */
+.eventContainer:nth-child(1) .photoPlaceholder {
+  background-color: var(--color-accent-blush);
+}
+
+.eventContainer:nth-child(2) .photoPlaceholder {
+  background-color: var(--color-accent-sage);
+}
+
+.eventContainer:nth-child(3) .photoPlaceholder {
+  background-color: var(--color-accent-lavender);
+}
+
+.eventContainer:nth-child(1) .photoContainer:nth-child(2n) .photoPlaceholder {
+  background-color: var(--color-accent-lavender);
+}
+
+.eventContainer:nth-child(2) .photoContainer:nth-child(2n) .photoPlaceholder {
+  background-color: var(--color-accent-blush);
+}
+
+.eventContainer:nth-child(3) .photoContainer:nth-child(2n) .photoPlaceholder {
+  background-color: var(--color-accent-sage);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .photoGrid {
+    gap: 1rem;
   }
   
   .photoContainer {
-    width: 240px;
-    height: 180px;
-    position: relative;
-    cursor: pointer;
-    transition: all var(--transition-standard);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .photoContainer:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    transform: translateY(-5px) scale(1.02);
-  }
-  
-  .photoPlaceholder {
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-accent-blush);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text);
-    font-family: var(--font-heading);
-    font-style: italic;
-    transition: all var(--transition-standard);
-  }
-  
-  .photoContainer:nth-child(2n) .photoPlaceholder {
-    background-color: var(--color-accent-sage);
-  }
-  
-  .photoContainer:nth-child(3n) .photoPlaceholder {
-    background-color: var(--color-accent-lavender);
-  }
-  
-  .expandedPhotoOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    width: 130px;
+    height: 100px;
   }
   
   .expandedPhotoContainer {
-    width: 80%;
-    max-width: 900px;
-    max-height: 80vh;
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    cursor: default;
-    display: flex;
-    flex-direction: column;
+    width: 90%;
   }
   
   .expandedPhotoPlaceholder {
-    width: 100%;
-    height: 60vh;
-    background-color: var(--color-accent-blush);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text);
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-style: italic;
+    height: 50vh;
   }
   
-  .photoCaption {
-    padding: 1rem;
-    text-align: center;
-    font-family: var(--font-heading);
-    font-style: italic;
-    color: var(--color-text);
-  }
-  
-  .closeButton {
-    position: absolute;
-    top: 1rem;
+  .eventIndicators {
     right: 1rem;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: white;
-    color: var(--color-text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: none;
-    font-size: 1.5rem;
-    z-index: 10;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
   
-  @media (max-width: 768px) {
-    .photoGrid {
-      gap: 1rem;
-    }
-    
-    .photoContainer {
-      width: 130px;
-      height: 100px;
-    }
-    
-    .expandedPhotoContainer {
-      width: 90%;
-    }
-    
-    .expandedPhotoPlaceholder {
-      height: 50vh;
-    }
+  .eventIndicator {
+    width: 8px;
+    height: 8px;
   }
+  
+  .eventTitle {
+    font-size: 1.5rem;
+  }
+  
+  .eventDescription {
+    font-size: 0.9rem;
+  }
+}
