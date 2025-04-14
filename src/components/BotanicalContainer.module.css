@@ -1,0 +1,45 @@
+/* Add this to your existing BotanicalContainer.module.css */
+
+/* Updated CSS for the corner piece */
+.cornerPiece {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  pointer-events: none;
+  max-width: 25vw; /* Responsive sizing */
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+  overflow: visible; /* Ensure nothing gets cut off */
+}
+
+.cornerPiece img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: bottom left;
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 1024px) {
+  /* Tablet landscape */
+  .cornerPiece {
+    max-width: 30vw; /* Slightly larger on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Tablet portrait */
+  .cornerPiece {
+    max-width: 35vw; /* Even larger on smaller tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile phones */
+  .cornerPiece {
+    max-width: 40vw; /* Largest on mobile devices */
+  }
+}

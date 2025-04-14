@@ -1,0 +1,37 @@
+.container {
+    min-height: 100vh;
+    padding: var(--spacing-lg);
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .title {
+    font-family: var(--font-heading);
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-interactive);
+  }
+  
+  .testArea {
+    width: 100%;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .controls {
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .hint {
+    font-style: italic;
+    color: var(--color-text);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    text-align: center;
+  }

@@ -1,0 +1,91 @@
+/* src/components/Botanical.module.css */
+.container {
+  position: fixed;
+  right: 5%;
+  z-index: 3;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+/* Styles for top corner element */
+.topCornerContainer {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 3;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+}
+
+.topCornerImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Styles for bottom left element */
+.bottomLeftContainer {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 3;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+}
+
+.bottomLeftImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Styles for final page element */
+.finalContainer {
+  position: fixed;
+  right: 5%;
+  z-index: 3;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+}
+
+.finalImage {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 120px;
+    right: 2%;
+  }
+  
+  .topCornerContainer {
+    width: 120px;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .bottomLeftContainer {
+    width: 120px;
+    bottom: 1rem;
+    left: 1rem;
+  }
+  
+  .finalContainer {
+    width: 120px;
+    right: 2%;
+  }
+}

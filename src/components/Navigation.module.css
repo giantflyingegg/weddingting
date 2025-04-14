@@ -1,0 +1,74 @@
+.navigation {
+    position: fixed;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+  }
+  
+  .navList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .navItem {
+    position: relative;
+  }
+  
+  .navLink {
+    display: block;
+    position: relative;
+  }
+  
+  .navDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-interactive);
+    box-shadow: 0 0 8px rgba(90, 125, 99, 0.3);
+    transition: all var(--transition-standard);
+  }
+  
+  .navLink[data-active="true"] .navDot {
+    background-color: var(--color-interactive-hover);
+    box-shadow: 0 0 12px rgba(90, 125, 99, 0.5);
+  }
+  
+  .navTooltip {
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-standard);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navLink:hover .navTooltip {
+    opacity: 1;
+  }
+  
+  /* Media query for mobile */
+  @media (max-width: 768px) {
+    .navigation {
+      left: 1rem;
+    }
+    
+    .navList {
+      gap: 1rem;
+    }
+    
+    .navDot {
+      width: 8px;
+      height: 8px;
+    }
+  }

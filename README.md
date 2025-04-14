@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wedding Thank You Website
+
+An elegant, natural-themed website to thank wedding guests and share memories.
+
+## Features
+
+- Section-based layout with snap scrolling
+- Botanical elements with animations
+- Photo display with path-based layout
+- Thank you message with elegant styling
+- Responsive design for all devices
 
 ## Getting Started
 
-First, run the development server:
+1. Clone this repository
+2. Install dependencies
+
+```bash
+cd wedding-thank-you
+npm install
+```
+
+3. Add your images:
+   - Add your actual wedding photos to the `public/images` directory
+   - Add a subtle grain texture named `texture-grain.png` to the `public/images` directory
+
+4. Customize:
+   - Update the names and wedding date in `ThankYouSection.tsx`
+   - Update the thank you message in `MessageSection.tsx`
+   - Update the welcome text in `WelcomeSection.tsx`
+
+5. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+When you're ready to deploy the site to your NUC:
 
-## Learn More
+1. Build the project:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Use Cloudflare tunneling to expose the site (instructions to be provided separately).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Customization Options
 
-## Deploy on Vercel
+The site is designed with the "Elegant Natural" aesthetic, featuring:
+- Off-white/cream background with pastel accents
+- Stylized typography combining serif headings with sans-serif body text
+- Subtle grain texture for warmth
+- Botanical/plant elements as visual highlights
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+You can easily modify the color palette by editing the CSS variables in `globals.css`.

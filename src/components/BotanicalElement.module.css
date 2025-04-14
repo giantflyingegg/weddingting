@@ -1,0 +1,76 @@
+.container {
+  position: fixed;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.left {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+}
+
+.right {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+}
+
+.svg {
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
+
+/* Position multiple instances of the SVG along the sides */
+.left .svg:nth-child(1) {
+  top: 10%;
+  left: 10px;
+  transform: scale(1.2);
+}
+
+.left .svg:nth-child(2) {
+  top: 40%;
+  left: 30px;
+  transform: scale(1) rotate(10deg);
+}
+
+.left .svg:nth-child(3) {
+  bottom: 15%;
+  left: 5px;
+  transform: scale(1.3) rotate(-5deg);
+}
+
+.right .svg:nth-child(1) {
+  top: 15%;
+  right: 20px;
+  transform: scale(1) rotate(-10deg);
+}
+
+.right .svg:nth-child(2) {
+  top: 45%;
+  right: 10px;
+  transform: scale(1.1);
+}
+
+.right .svg:nth-child(3) {
+  bottom: 10%;
+  right: 30px;
+  transform: scale(1.2) rotate(5deg);
+}
+
+@media (max-width: 768px) {
+  .left,
+  .right {
+    width: 80px;
+  }
+  
+  .left .svg,
+  .right .svg {
+    transform-origin: center top;
+    transform: scale(0.7);
+  }
+}
